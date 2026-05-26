@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Homepage
+{% endblock %}
+{% block main %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Symbol
+            </th>
+            <th>
+                Shares
+            </th>
+            <th>
+                Current Price
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for purchase in user_purchases %}
+        {% if purchase["shares"] > 0 %}
+        <tr>
+            <td>
+                {{purchase["symbol"]}}
+            </td>
+             <td>
+                {{purchase["shares"]}}
+            </td>
+            <td>
+                {{purchase["current_price"] | usd}}
+            </td>
+             <td>
+                {{ purchase["total"] | usd }}
+            </td>
+        </tr>
+        {% endif %}
+       {% endfor %}
+    </tbody>
+    </tfoot>
+
+        <tr>
+            <td colspan="3" class="fw-bold text-end">
+                Cash
+            </td>
+            <td>
+                {{ cash | usd }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="fw-bold text-end">
+                Total
+            </td>
+            <td>
+                {{total | usd}}
+            </td>
+        </tr>
+
+    </tfoot>
+
+</table>
+
+
+{% endblock %}

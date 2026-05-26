@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+{% block main %}
+    <h2>Find a quote</h2>
+
+    <form action="/quote" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Stock symbol" type="text">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Find</button>
+    </form>
+{% if name%}
+<table class="table table-self">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Latest Price</th>
+        </tr>
+        <tr>
+            <td>{{name}}</td>
+            <td>{{price | usd }}</td>
+        </tr>
+
+    </thead>
+</table>
+
+{% endif %}
+
+{% endblock %}

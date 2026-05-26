@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+{% block main %}
+<h2>Sell a quote</h2>
+<form action="/sell" method="post">
+<div class="mb-3">
+<select name="symbol" class="form-control mx-auto w-auto">
+    <option value="">Choose a symbol</option>
+{% for purchase in user_purchases %}
+    {% if purchase["shares"] > 0 %}
+
+    <option value="{{purchase['symbol']}}">{{purchase["symbol"]}}</option>
+
+    {% endif %}
+{% endfor %}
+
+</select>
+
+</div>
+
+
+
+<div class="mb-3">
+    <input name="shares" autocomplete="off" class="form-control mx-auto w-auto" placeholder="Number of shares">
+</div>
+<button type="submit" class="btn btn-primary">Sell</button>
+
+</form>
+
+
+{% endblock %}
