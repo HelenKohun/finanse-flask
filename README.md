@@ -168,4 +168,6 @@ This project can be deployed using platforms like Render or similar services sup
 
 ## 👩‍💻 Author
 
-**Helen Kohun**
+Application logic, backend, and functionality were implemented by **Helen Kohun**.
+
+Some CSS/styles were adapted from or provided by the CS50 course materials.
